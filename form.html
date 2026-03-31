@@ -11,17 +11,14 @@
   .logo-text { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 2px; }
   .logo-tm { font-size: 10px; vertical-align: super; color: #fff; }
   .card { background: #fff; border-radius: 10px; overflow: hidden; max-width: 600px; margin: 0 auto; }
-  .card-header { padding: 28px 32px 20px; border-bottom: 1px solid #e8ecf2; }
-  .card-title { font-size: 22px; font-weight: 700; color: #0f2240; margin-bottom: 4px; }
-  .card-urgent { font-size: 13px; font-weight: 600; color: #e06020; }
-  .card-body { padding: 24px 32px; }
-  p { font-size: 15px; color: #2c3a50; line-height: 1.65; margin-bottom: 14px; }
-  p:last-child { margin-bottom: 0; }
-  .info-box { background: #eef2f8; border-radius: 8px; padding: 16px 20px; margin: 18px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; }
-  .info-item label { display: block; font-size: 10px; font-weight: 700; color: #7a8fa8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+  .card-header { padding: 20px 32px 16px; border-bottom: 1px solid #e8ecf2; }
+  .card-urgent { font-size: 13px; font-weight: 600; color: #e06020; margin-bottom: 10px; }
+  .info-box { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  .info-item label { display: block; font-size: 10px; font-weight: 700; color: #7a8fa8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
   .info-item span { font-size: 14px; font-weight: 700; color: #0f2240; }
+  .card-body { padding: 20px 32px; }
 
-  .form-group { margin-bottom: 18px; }
+  .form-group { margin-bottom: 16px; }
   .form-group > label { display: block; font-size: 10px; font-weight: 700; color: #7a8fa8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
   .req { color: #e03030; }
   .form-group input, .form-group select { width: 100%; border: 1px solid #cdd5e0; border-radius: 6px; padding: 11px 14px; font-size: 15px; color: #0f2240; outline: none; transition: border-color 0.15s; font-family: inherit; background: #fff; appearance: none; -webkit-appearance: none; }
@@ -37,9 +34,9 @@
 
   .hidden { display: none; }
 
-  .no-record-box { background: #fff5f5; border: 1px solid #f5c0c0; border-radius: 8px; padding: 16px 20px; margin: 4px 0 18px; display: flex; align-items: flex-start; gap: 12px; }
-  .no-record-box input[type=checkbox] { margin-top: 2px; width: 16px; height: 16px; accent-color: #c0392b; flex-shrink: 0; cursor: pointer; }
-  .no-record-box label { font-size: 14px; color: #a93226; cursor: pointer; line-height: 1.5; font-weight: 500; }
+  .additional-comp { margin-top: 8px; }
+  .additional-comp a { font-size: 13px; color: #1a3fa8; text-decoration: none; cursor: pointer; }
+  .additional-comp a:hover { text-decoration: underline; }
 
   .confirm-box { background: #eef2f8; border-radius: 7px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; margin: 20px 0; }
   .confirm-box input[type=checkbox] { margin-top: 2px; width: 16px; height: 16px; accent-color: #1a3fa8; flex-shrink: 0; cursor: pointer; }
@@ -47,14 +44,15 @@
 
   .cta-btn { display: block; width: 100%; background: #1a3fa8; color: #fff; border: none; border-radius: 7px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; transition: background 0.15s; margin-bottom: 8px; font-family: inherit; }
   .cta-btn:hover { background: #163490; }
-  .cta-btn:disabled { background: #a0aec0; cursor: not-allowed; }
   .cta-sub { text-align: center; font-size: 12px; color: #8a9ab0; margin-bottom: 0; }
+
   .form-footer { padding: 16px 32px; border-top: 1px solid #e8ecf2; text-align: center; }
   .form-footer p { font-size: 13px; color: #8a9ab0; }
   .form-footer a { color: #1a3fa8; text-decoration: none; }
   .legal-footer { background: #0f2240; padding: 20px 32px; }
   .legal-footer p { font-size: 11px; color: #7a9fc0; line-height: 1.6; text-align: center; margin-bottom: 6px; }
   .legal-footer p:last-child { margin-bottom: 0; }
+
   .success { display: none; text-align: center; padding: 48px 40px; }
   .success-icon { width: 56px; height: 56px; background: #e6f4ec; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
   .success h2 { font-size: 22px; font-weight: 700; color: #0f2240; margin-bottom: 10px; }
@@ -74,103 +72,85 @@
 
   <div class="card">
     <div id="form-view">
-      <div class="card-header">
-        <div class="card-title">Verification of Employment</div>
-        <div class="card-urgent">Response needed within 24 hours</div>
-      </div>
-      <div class="card-body">
-        <p>You've been asked to confirm employment details for the individual below, who has applied for housing at a property managed by <strong>[PROPERTY MANAGEMENT COMPANY]</strong>. Their application was submitted with your organization listed as their employer.</p>
 
+      <!-- Compact header with urgency + applicant info -->
+      <div class="card-header">
+        <div class="card-urgent">Response needed within 24 hours</div>
         <div class="info-box">
-          <div class="info-item"><label>Applicant</label><span>[APPLICANT NAME]</span></div>
-          <div class="info-item"><label>Listed Employer</label><span>[EMPLOYER NAME]</span></div>
+          <div class="info-item">
+            <label>Applicant</label>
+            <span>[APPLICANT NAME]</span>
+          </div>
+          <div class="info-item">
+            <label>Listed Employer</label>
+            <span>[EMPLOYER NAME]</span>
+          </div>
+          <div class="info-item">
+            <label>Listed Position</label>
+            <span>[JOB TITLE]</span>
+          </div>
+          <div class="info-item">
+            <label>Housing Application For</label>
+            <span>[PROPERTY MANAGEMENT COMPANY]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <div class="form-group">
+          <label>Employment Start Date <span class="req">*</span></label>
+          <input type="date" id="start-date" />
         </div>
 
-        <!-- Main form fields -->
-        <div id="main-fields">
-          <p>Please complete all fields below. This information will be used solely to support their housing application.</p>
-
+        <!-- Compensation amount + pay frequency side by side -->
+        <div class="form-row">
           <div class="form-group">
-            <label>Your Organization's Name <span class="req">*</span></label>
-            <input type="text" id="org-name" placeholder="e.g. Amazon, Inc." />
-          </div>
-
-          <div class="form-group">
-            <label>Applicant's Job Title <span class="req">*</span></label>
-            <input type="text" id="job-title" placeholder="e.g. Software Engineer" />
-          </div>
-
-          <div class="form-group">
-            <label>Employment Start Date <span class="req">*</span></label>
-            <input type="date" id="start-date" />
-          </div>
-
-          <!-- Compensation -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Compensation Amount <span class="req">*</span></label>
-              <div class="input-prefix">
-                <span>$</span>
-                <input type="number" id="comp-amount" placeholder="0.00" min="0" step="0.01" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Pay Frequency <span class="req">*</span></label>
-              <select id="pay-freq" onchange="toggleHours()">
-                <option value="">Select frequency...</option>
-                <option value="hourly">Hourly</option>
-                <option value="weekly">Weekly</option>
-                <option value="biweekly">Bi-Weekly</option>
-                <option value="semimonthly">Semi-Monthly</option>
-                <option value="monthly">Monthly</option>
-                <option value="annual">Annual (Salary)</option>
-              </select>
+            <label>Compensation Amount <span class="req">*</span></label>
+            <div class="input-prefix">
+              <span>$</span>
+              <input type="number" id="comp-amount" placeholder="0.00" min="0" step="0.01" />
             </div>
           </div>
-
-          <!-- Hours per week — shown only for hourly -->
-          <div class="form-group hidden" id="group-hours">
-            <label>Average Hours Per Week <span class="req">*</span></label>
-            <select id="hours-per-week">
-              <option value="">Select hours...</option>
-              <option>Less than 10</option>
-              <option>10–19</option>
-              <option>20–29</option>
-              <option>30–39</option>
-              <option>40 (Full-time)</option>
-              <option>40+</option>
+          <div class="form-group">
+            <label>Pay Frequency <span class="req">*</span></label>
+            <select id="pay-freq" onchange="toggleHours()">
+              <option value="">Select...</option>
+              <option value="hourly">Hourly</option>
+              <option value="weekly">Weekly</option>
+              <option value="biweekly">Bi-Weekly</option>
+              <option value="semimonthly">Semi-Monthly</option>
+              <option value="monthly">Monthly</option>
+              <option value="annual">Annual (Salary)</option>
             </select>
           </div>
-
-          <div class="confirm-box">
-            <input type="checkbox" id="confirm-check" />
-            <label for="confirm-check">I confirm this information is accurate to the best of my knowledge.</label>
-          </div>
-
-          <button class="cta-btn" onclick="handleSubmit()">Confirm Employment Details →</button>
-          <p class="cta-sub">Secure form · Takes less than 30 seconds</p>
         </div>
 
-        <!-- No record toggle -->
-        <div style="margin-top:20px;text-align:center;">
-          <p style="font-size:13px;color:#8a9ab0;margin-bottom:8px;">Can't find this employee? <a href="#" onclick="toggleNoRecord(event)" style="color:#1a3fa8;text-decoration:underline;">I have no record of this individual (optional)</a></p>
+        <!-- Hours — shown for hourly, free text -->
+        <div class="form-group hidden" id="group-hours">
+          <label>Average Hours Per Period <span class="req">*</span></label>
+          <input type="text" id="hours-per-period" placeholder="e.g. 25 hours/week or 50 hours/month" />
         </div>
 
-        <!-- No record submit -->
-        <div id="no-record-fields" class="hidden">
-          <div class="no-record-box">
-            <input type="checkbox" id="no-record" />
-            <label for="no-record">I have no record of this individual as an employee of our organization.</label>
-          </div>
-          <div class="confirm-box">
-            <input type="checkbox" id="confirm-check-norecord" />
-            <label for="confirm-check-norecord">I confirm that to the best of my knowledge, this individual is not and has not been an employee of our organization.</label>
-          </div>
-          <button class="cta-btn" onclick="handleNoRecord()">Submit No Record Response →</button>
-          <p class="cta-sub">Secure form · Takes less than 30 seconds</p>
+        <!-- Additional compensation -->
+        <div class="form-group hidden" id="group-additional">
+          <label>Additional Compensation</label>
+          <input type="text" id="additional-comp" placeholder="e.g. $5,000 annual bonus, 10% commission" />
+          <div class="form-hint">Include any bonuses, commission, overtime, or other additional pay.</div>
+        </div>
+        <div class="additional-comp">
+          <a id="add-comp-link" onclick="toggleAdditional(event)" href="#">+ Add additional compensation (bonus, commission, etc.)</a>
         </div>
 
+        <div class="confirm-box">
+          <input type="checkbox" id="confirm-check" />
+          <label for="confirm-check">I confirm this information is accurate to the best of my knowledge.</label>
+        </div>
+
+        <button class="cta-btn" onclick="handleSubmit()">Confirm Employment Details →</button>
+        <p class="cta-sub">Secure form · Takes less than 30 seconds</p>
       </div>
+
       <div class="form-footer">
         <p>Questions? Reply to this email or contact <a href="mailto:support@snappt.com">support@snappt.com</a></p>
       </div>
@@ -188,8 +168,8 @@
           <path d="M8 14.5 L12 18.5 L20 10" stroke="#1a9e60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <h2 id="success-title">Thank you for verifying</h2>
-      <p id="success-msg">Your response has been securely submitted. The applicant's housing review will now proceed. No further action is needed on your part.</p>
+      <h2>Thank you for verifying</h2>
+      <p>Your response has been securely submitted. The applicant's housing review will now proceed. No further action is needed on your part.</p>
       <div class="legal-footer" style="margin-top:32px;">
         <p>© 2026 Snappt</p>
         <p>For Official Use Only – Privacy Sensitive. Any misuse or unauthorized disclosure may result in both criminal and civil penalties.</p>
@@ -199,14 +179,17 @@
   </div>
 
 <script>
-  function toggleNoRecord(e) {
-    if (e) e.preventDefault();
-    document.getElementById('no-record-fields').classList.toggle('hidden');
-  }
-
   function toggleHours() {
     const freq = document.getElementById('pay-freq').value;
     document.getElementById('group-hours').classList.toggle('hidden', freq !== 'hourly');
+  }
+
+  function toggleAdditional(e) {
+    e.preventDefault();
+    const grp = document.getElementById('group-additional');
+    const link = document.getElementById('add-comp-link');
+    const hidden = grp.classList.toggle('hidden');
+    link.textContent = hidden ? '+ Add additional compensation (bonus, commission, etc.)' : '− Remove additional compensation';
   }
 
   function handleSubmit() {
@@ -214,22 +197,6 @@
       alert('Please confirm the information is accurate before submitting.');
       return;
     }
-    document.getElementById('success-title').textContent = 'Thank you for verifying';
-    document.getElementById('success-msg').textContent = 'Your response has been securely submitted. The applicant\'s housing review will now proceed. No further action is needed on your part.';
-    showSuccess();
-  }
-
-  function handleNoRecord() {
-    if (!document.getElementById('confirm-check-norecord').checked) {
-      alert('Please confirm before submitting.');
-      return;
-    }
-    document.getElementById('success-title').textContent = 'Response received';
-    document.getElementById('success-msg').textContent = 'Thank you for letting us know. We have recorded that this individual is not associated with your organization. No further action is needed on your part.';
-    showSuccess();
-  }
-
-  function showSuccess() {
     document.getElementById('form-view').style.display = 'none';
     document.getElementById('success-view').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });

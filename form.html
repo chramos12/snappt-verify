@@ -22,7 +22,7 @@
   .info-item span { font-size: 14px; font-weight: 700; color: #0f2240; }
   .form-group { margin-bottom: 18px; }
   .form-group > label { display: block; font-size: 10px; font-weight: 700; color: #7a8fa8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
-  .form-group .req { color: #e03030; }
+  .req { color: #e03030; }
   .form-group input { width: 100%; border: 1px solid #cdd5e0; border-radius: 6px; padding: 11px 14px; font-size: 15px; color: #0f2240; outline: none; transition: border-color 0.15s; font-family: inherit; }
   .form-group input:focus { border-color: #1a3fa8; box-shadow: 0 0 0 3px rgba(26,63,168,0.1); }
   .form-group input::placeholder { color: #aab4c0; }
@@ -46,7 +46,6 @@
 </style>
 </head>
 <body>
-
   <div class="logo-bar">
     <svg width="36" height="36" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M19 9 L35 17 L19 22 L3 17 Z" fill="#4A90D9"/>
@@ -57,7 +56,8 @@
     <span class="logo-text">SNAPPT<span class="logo-tm">™</span></span>
   </div>
 
-  <div class="card" id="form-view">
+  <div class="card">
+    <div id="form-view">
       <div class="card-header">
         <div class="card-title">Verification of Employment</div>
         <div class="card-urgent">Response needed within 24 hours</div>
@@ -103,7 +103,7 @@
       </div>
     </div>
 
-  <div class="card" id="success-view" style="display:none;max-width:600px;margin:0 auto;">
+    <div class="success" id="success-view">
       <div class="success-icon">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
           <circle cx="14" cy="14" r="13" stroke="#1a9e60" stroke-width="2"/>
@@ -118,7 +118,6 @@
         <p>This communication, including attachments, is confidential and may be protected by privilege. If you are not the intended recipient, any use, dissemination, distribution, or copying is prohibited. If received in error, please notify the sender and permanently delete all copies.</p>
       </div>
     </div>
-
   </div>
 
 <script>

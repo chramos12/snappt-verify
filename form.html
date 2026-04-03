@@ -7,13 +7,15 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0f2240; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; min-height: 100vh; padding: 32px 16px; }
-  .logo-bar { text-align: center; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-  .logo-text { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 2px; }
-  .logo-tm { font-size: 10px; vertical-align: super; color: #fff; }
   .card { background: #fff; border-radius: 10px; overflow: hidden; max-width: 600px; margin: 0 auto; }
-  .card-header { padding: 20px 32px 16px; border-bottom: 1px solid #e8ecf2; }
-  .card-urgent { font-size: 13px; font-weight: 600; color: #e06020; margin-bottom: 10px; }
-  .info-box { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  .card-header { padding: 0; border-bottom: 1px solid #e8ecf2; }
+  .header-banner { background: linear-gradient(135deg, #0f2240 0%, #1a3fa8 100%); padding: 20px 32px 16px; border-radius: 10px 10px 0 0; text-align: center; }
+  .header-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+  .header-logo span { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 3px; }
+  .header-logo sup { font-size: 8px; color: #fff; }
+  .header-sub { display: flex; gap: 24px; justify-content: center; }
+  .header-sub span { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .info-box { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; padding: 14px 32px; }
   .info-item label { display: block; font-size: 10px; font-weight: 700; color: #7a8fa8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
   .info-item span { font-size: 14px; font-weight: 700; color: #0f2240; }
   .card-body { padding: 20px 32px; }
@@ -53,20 +55,23 @@
 </style>
 </head>
 <body>
-  <div class="logo-bar">
-    <svg width="36" height="36" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19 9 L35 17 L19 22 L3 17 Z" fill="#4A90D9"/>
-      <path d="M10 20.5 L10 29 C10 29 13.5 32 19 32 C24.5 32 28 29 28 29 L28 20.5 L19 24 Z" fill="#4A90D9"/>
-      <rect x="33" y="17" width="2.5" height="9" rx="1.25" fill="#4A90D9"/>
-      <circle cx="34.25" cy="27.5" r="2" fill="#4A90D9"/>
-    </svg>
-    <span class="logo-text">SNAPPT<span class="logo-tm">™</span></span>
-  </div>
-
   <div class="card">
     <div id="form-view">
       <div class="card-header">
-        <div class="card-urgent">Response needed within 24 hours</div>
+        <div class="header-banner">
+          <div class="header-logo">
+            <svg width="150" height="36" viewBox="0 0 150 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="14,2 26,8 14,14 2,8" fill="none" stroke="#2B9FE8" stroke-width="2.5"/>
+              <polyline points="2,14 14,20 26,14" fill="none" stroke="#2B9FE8" stroke-width="2.5"/>
+              <polyline points="2,20 14,26 26,20" fill="none" stroke="#2B9FE8" stroke-width="2.5"/>
+              <text x="36" y="24" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#ffffff" letter-spacing="4">SNAPPT</text>
+            </svg>
+          </div>
+          <div class="header-sub">
+            <span>🔒 Secure form</span>
+            <span>⏱ Under 30 seconds to complete</span>
+          </div>
+        </div>
         <div class="info-box">
           <div class="info-item"><label>Applicant</label><span>[APPLICANT NAME]</span></div>
           <div class="info-item"><label>Listed Employer</label><span>[EMPLOYER NAME]</span></div>
@@ -115,11 +120,6 @@
         </div>
         <div class="additional-comp">
           <a id="add-comp-link" onclick="toggleAdditional(event)" href="#">+ Add additional compensation (bonus, commission, etc.)</a>
-        </div>
-
-        <div class="confirm-box">
-          <input type="checkbox" id="confirm-check" />
-          <label for="confirm-check">I confirm this information is accurate to the best of my knowledge.</label>
         </div>
 
         <button class="cta-btn" onclick="handleSubmit()">Confirm Employment Details →</button>
@@ -177,10 +177,6 @@
   }
 
   function handleSubmit() {
-    if (!document.getElementById('confirm-check').checked) {
-      alert('Please confirm the information is accurate before submitting.');
-      return;
-    }
     document.getElementById('form-view').style.display = 'none';
     document.getElementById('success-view').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
